@@ -1,0 +1,121 @@
+#File: a14-sqlpractice.txt
+#Name: Carole (Chia Jung) Sung
+#Assignment: Assignment A14
+#Date: Mar 12 2018
+#Description: Outputs saved from each query written. Program sqlLiteClient.py
+
+Question 0: 
+SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name;
+friends	
+profiles	
+status	
+
+PRAGMA table_info(friends)
+0	profileid		0	None	0	
+1	friendid		0	None	0	
+
+PRAGMA table_info(profiles)
+0	profileid		0	None	0	
+1	firstname		0	None	0	
+2	lastname		0	None	0	
+3	email		0	None	0	
+4	activities		0	None	0
+	
+PRAGMA table_info(status)
+0	profileid		0	None	0	
+1	datetime		0	None	0	
+2	message		0	None	0	
+
+#####################################################
+Question 1: 
+SELECT * FROM profiles
+1	Mickey	Mouse	mmouse@disney.com	Whistling while I work.	
+2	Axl	Rose	axl@gnr.com	Sitting here on the stairs.	
+3	JL	Picard	captain@enterprise.sf	Commanding the Enterprise.	
+4	Barack	Obama	prez@whitehouse.gov	Too many to even list them.	
+5	Clark	Kent	ck@dailyplanet.com	Savings the world from bad guys.	
+
+
+profileid, first name, last name, email, and activities of each person in the table profiles are displayed 
+#####################################################
+Question 2:
+SELECT * FROM status 
+1	10/21/2015 12:34:56	Watch out for cats!	
+2	10/21/2015 12:34:56	This is a song about your f'n motha	
+3	10/21/2015 12:34:56	Set course for earth, warp 3.	
+4	10/21/2015 12:34:56	Where's uncle Joe?	
+4	10/22/2015 08:40:01	Joe's seen the president's job, and he doesn't want it.	
+
+All data in the table status is displayed. Includes profileid, datetime, message.
+######################################################
+Question 3:
+SELECT * FROM friends
+1	2	
+2	1	
+1	3	
+1	4	
+3	1	
+4	1	
+
+All data in the table friends is displayed. Includes profile id and friend id.
+######################################################
+Question 4:
+SELECT * FROM status WHERE profileid = 4
+4	10/21/2015 12:34:56	Where's uncle Joe?	
+4	10/22/2015 08:40:01	Joe's seen the president's job, and he doesn't want it.	
+
+######################################################
+Question 5:
+INSERT INTO STATUS (profileid, datetime, message) VALUES (5, "10/23/2015 08:40:01", "Off to save the world!!")
+1 rows were affected.
+
+##############################
+Question 6:
+UPDATE profiles SET activities = "Hanging out with Minnie." WHERE profileid = 1
+1 rows were affected.
+
+##############################
+Question 7:
+INSERT INTO profiles (profileid, firstname, lastname, email, activities) VALUES (6, "Darth", "Vader", "mrhandsome@sw.com", "Playing with my light saber.")
+1 rows were affected.
+
+
+Enter your SQL or "quit" to quit.
+SELECT * FROM profiles
+1	Mickey	Mouse	mmouse@disney.com	Hanging out with Minnie.	
+2	Axl	Rose	axl@gnr.com	Sitting here on the stairs.	
+3	JL	Picard	captain@enterprise.sf	Commanding the Enterprise.	
+4	Barack	Obama	prez@whitehouse.gov	Too many to even list them.	
+5	Clark	Kent	ck@dailyplanet.com	Savings the world from bad guys.	
+6	Darth	Vader	mrhandsome@sw.com	Playing with my light saber.	
+###############################
+Question 8:
+INSERT INTO STATUS (profileid, datetime, message) VALUES (6, "10/23/3017 08:40:01", "Where my storm troopers at")
+1 rows were affected.
+
+###############################
+Question 9:
+SELECT friendid FROM friends WHERE profileid = 1
+2	
+3	
+4	
+
+###############################
+Question 10:
+SELECT firstname, lastname FROM profiles INNER JOIN friends ON profiles.profileid = friends.friendid WHERE friends.profileid = 1
+Axl	Rose	
+JL	Picard	
+Barack	Obama	
+
+################################
+Question 11:
+SELECT datetime, firstname, lastname, message FROM status INNER JOIN profiles ON status.profileid = profiles.profileid
+10/21/2015 12:34:56	Mickey	Mouse	Watch out for cats!	
+10/21/2015 12:34:56	Axl	Rose	This is a song about your f'n motha	
+10/21/2015 12:34:56	JL	Picard	Set course for earth, warp 3.	
+10/21/2015 12:34:56	Barack	Obama	Where's uncle Joe?	
+10/22/2015 08:40:01	Barack	Obama	Joe's seen the president's job, and he doesn't want it.	
+10/23/2015 08:40:01	Clark	Kent	Off to save the world!!	
+10/23/3017 08:40:01	Darth	Vader	Where my storm troopers at	
+
+

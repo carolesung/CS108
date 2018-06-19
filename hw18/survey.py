@@ -1,0 +1,146 @@
+#!/usr/bin/python3
+
+# File: survey.py
+# Date: Mar 28 2018
+# Name: Carole (Chia Jung) Sung
+# Description: A Python web application that will generate a HTML form.
+
+def printSurveyForm():
+    # HTTP headers
+    print("Content-type: text/html")
+    print()
+
+    print("""
+<html>
+<head>
+<title>a18-survey</title>
+</head>
+
+<body>
+Welcome to our survey! Please take a moment to fill out the following questions:
+<p>
+<form action="https://cs-webapps.bu.edu/cgi-bin/util/formmailer.py">
+<table style="width:80%">
+	<tr>
+		<td><b>Your name (optional):</b></td>
+		<td><input type="text" name="name"></td>
+	</tr>
+	<tr>
+		<td><b>Hometown:</b></td>
+		<td><input type="text" name="hometown"></td>
+	</tr>
+	<tr>
+		<td><b>State:</b></td>
+		<td><select name="state">
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option value="AZ">Arizona</option>
+				<option value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District Of Columbia</option>
+				<option value="FL">Florida</option>
+				<option value="GA">Georgia</option>
+				<option value="HI">Hawaii</option>
+				<option value="ID">Idaho</option>
+				<option value="IL">Illinois</option>
+				<option value="IN">Indiana</option>
+				<option value="IA">Iowa</option>
+				<option value="KS">Kansas</option>
+				<option value="KY">Kentucky</option>
+				<option value="LA">Louisiana</option>
+				<option value="ME">Maine</option>
+				<option value="MD">Maryland</option>
+				<option value="MA">Massachusetts</option>
+				<option value="MI">Michigan</option>
+				<option value="MN">Minnesota</option>
+				<option value="MS">Mississippi</option>
+				<option value="MO">Missouri</option>
+				<option value="MT">Montana</option>
+				<option value="NE">Nebraska</option>
+				<option value="NV">Nevada</option>
+				<option value="NH">New Hampshire</option>
+				<option value="NJ">New Jersey</option>
+				<option value="NM">New Mexico</option>
+				<option value="NY">New York</option>
+				<option value="NC">North Carolina</option>
+				<option value="ND">North Dakota</option>
+				<option value="OH">Ohio</option>
+				<option value="OK">Oklahoma</option>
+				<option value="OR">Oregon</option>
+				<option value="PA">Pennsylvania</option>
+				<option value="RI">Rhode Island</option>
+				<option value="SC">South Carolina</option>
+				<option value="SD">South Dakota</option>
+				<option value="TN">Tennessee</option>
+				<option value="TX">Texas</option>
+				<option value="UT">Utah</option>
+				<option value="VT">Vermont</option>
+				<option value="VA">Virginia</option>
+				<option value="WA">Washington</option>
+				<option value="WV">West Virginia</option>
+				<option value="WI">Wisconsin</option>
+				<option value="WY">Wyoming</option>	
+				<option value="Other">US Outlying Territories</option>
+			</select>
+			</td>
+
+	</tr>
+	<tr></tr>
+	<tr>
+		<td><b>What is your age group?</b></td>
+		<td><input type="radio" name="age" value="under 20"> Under 20<br>
+		<input type="radio" name="age" value="21-30"> 21-30<br>
+		<input type="radio" name="age" value="31-40"> 31-40<br>
+		<input type="radio" name="age" value="41-50"> 41-50<br>
+		<input type="radio" name="age" value="over 50"> Over 50</td>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td><b>How many miles do you run per week?</b></td>
+		<td><input type="radio" name="miles" value="fewer than 10"> Fewer than 10<br>
+		<input type="radio" name="miles" value="11-20"> 11-20<br>
+		<input type="radio" name="miles" value="21-30"> 21-30<br>
+		<input type="radio" name="miles" value="over 30"> Over 30</td><br>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td><b>Which of the following events have you run in the last 12 months? (Select all that apply)</b></td>
+		<td><input type="checkbox" name="events" value="5km"> 5km<br>
+		<input type="checkbox" name="events" value = "10km"> 10km<br>
+		<input type="checkbox" name="events" value = "1/2 marathon"> 1/2 marathon<br>
+		<input type="checkbox" name="events" value = "50km"> 50km<br>
+		<input type="text" name="Other events"> Other</td>
+		
+	</tr>
+	<tr></tr>
+	<tr>
+		<td><b>Which of the following events do you prefer? (Select all that apply)</b></td>
+		<td><input type="checkbox" name="events" value="5km"> 5km<br>
+		<input type="checkbox" name="events" value = "10km"> 10km<br>
+		<input type="checkbox" name="events" value = "1/2 marathon"> 1/2 marathon<br>
+		<input type="checkbox" name="events" value = "50km"> 50km<br>
+		<input type="text" name="Other events"> Other</td></td>
+		
+	</tr>
+	<tr></tr>
+	<tr>
+		<td><b>What topics would you like to see discussed in our blog?</b></td>
+		<td><textarea rows="4" cols = "50"></textarea></td>
+	</tr>
+	<tr></tr>
+
+</table>
+	<input type="hidden" name="mailto" value="carole07@bu.edu">
+	<input type="submit" name="Submit">
+</form>
+</body>
+</html>""")
+
+
+
+if __name__ == "__main__":
+    printSurveyForm()
+    
